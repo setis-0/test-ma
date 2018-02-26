@@ -15,7 +15,7 @@ export class DataService {
 
   bySearch(parameters: { t: string, type?: 'movie' | 'series' | 'episode' | string, y?: number | string, r?: 'json' | 'xml', page?: number, callback?: string }) {
 
-    let data = {...{r: 'json', page: 100, apikey: this.apiKey}, ...parameters};
+    let data:any = {...{r: 'json', page: 100, apikey: this.apiKey}, ...parameters};
     return this.http
       .get<any>(this.api, {
         params: new HttpParams({fromObject: data}),
